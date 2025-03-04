@@ -7,14 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/23.0.1">
+<AnchorPane prefHeight="700.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.farmingdale.g5_csc325_semesterproj.TaskScreenController">
    <Label layoutX="75.0" layoutY="30.0" prefHeight="60.0" prefWidth="300.0" text="WELCOME TO MIND MAP!" textAlignment="CENTER" underline="true">
       <font>
          <Font name="System Bold" size="24.0" />
       </font>
    </Label>
-   <Label layoutX="151.0" layoutY="79.0" text="(User's Name)">
+   <Label fx:id="usernameLabel" layoutX="151.0" layoutY="79.0" text="User: ">
       <font>
          <Font size="24.0" />
       </font>

@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                edu.farmingdale.g5_csc325_semesterproj/edu.farmingdale.g5_csc325_semesterproj.HelloApplication
+                                edu.farmingdale.g5_csc325_semesterproj/edu.farmingdale.g5_csc325_semesterproj.MindMapApp
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
