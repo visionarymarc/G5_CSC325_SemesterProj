@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/23.0.1">
+   <Label layoutX="75.0" layoutY="30.0" prefHeight="60.0" prefWidth="300.0" text="WELCOME TO MIND MAP!" textAlignment="CENTER" underline="true">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <Label layoutX="151.0" layoutY="79.0" text="(User's Name)">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <Label layoutX="15.0" layoutY="130.0" text="Your Tasks Due Today:" underline="true">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+   <TableView layoutX="15.0" layoutY="160.0" prefHeight="300.0" prefWidth="420.0">
+      <columns>
+         <TableColumn prefWidth="140.0" text="Task Name" />
+         <TableColumn prefWidth="140.0" text="Date Assigned" />
+         <TableColumn prefWidth="140.0" text="Due Date" />
+      </columns>
+   </TableView>
+   <Button layoutX="125.0" layoutY="500.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Add Task">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Button>
+   <Button layoutX="125.0" layoutY="550.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Edit Tasks">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Button>
+   <Button layoutX="125.0" layoutY="600.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Delete Tasks">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Button>
+</AnchorPane>
