@@ -14,7 +14,7 @@ public class MindMapApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MindMapApp.class.getResource("splash-screen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
         stage.setTitle("Mind Map!");
         stage.setScene(scene);
         stage.show();
@@ -30,7 +30,7 @@ public class MindMapApp extends Application {
 
     public static void switchScene(Stage stage, String fxmlFile) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MindMapApp.class.getResource(fxmlFile));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
         stage.setScene(scene);
     }
 

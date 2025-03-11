@@ -30,7 +30,7 @@
          <TableColumn prefWidth="140.0" text="Due Date" />
       </columns>
    </TableView>
-   <Button layoutX="125.0" layoutY="500.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Add Task">
+   <Button fx:id="addTskBtn" layoutX="125.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleAddTask" prefHeight="30.0" prefWidth="200.0" text="Add Task">
       <font>
          <Font name="System Bold" size="14.0" />
       </font>
