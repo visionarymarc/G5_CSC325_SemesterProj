@@ -4,15 +4,48 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="700.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.farmingdale.g5_csc325_semesterproj.AddTaskScreenController">
    <children>
-      <TextField layoutX="220.0" layoutY="99.0" />
-      <TextField layoutX="220.0" layoutY="175.0" />
-      <TextField layoutX="220.0" layoutY="264.0" />
-      <Label layoutX="285.0" layoutY="60.0" text="Task" />
-      <Label alignment="CENTER" layoutX="255.0" layoutY="149.0" prefHeight="17.0" prefWidth="90.0" text="Date Assigned" />
-      <Label alignment="CENTER" layoutX="262.0" layoutY="236.0" prefHeight="17.0" prefWidth="77.0" text="Due Date" textAlignment="CENTER" />
-      <Button fx:id="enterTaskBtn" layoutX="260.0" layoutY="341.0" mnemonicParsing="false" text="ENTER TASK" />
+      <TextField fx:id="dateInput" alignment="CENTER" layoutX="75.0" layoutY="300.0" prefHeight="40.0" prefWidth="300.0" promptText="Enter Date">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="taskInput" alignment="CENTER" layoutX="75.0" layoutY="175.0" prefHeight="40.0" prefWidth="300.0" promptText="Enter Task">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="dueInput" alignment="CENTER" layoutX="75.0" layoutY="425.0" prefHeight="40.0" prefWidth="300.0" promptText="Enter Date">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Label layoutX="75.0" layoutY="275.0" prefHeight="27.0" prefWidth="193.0" text="Date of Task Assigned:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="75.0" layoutY="150.0" prefHeight="27.0" prefWidth="122.0" text="Name of Task:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="75.0" layoutY="400.0" prefHeight="27.0" prefWidth="152.0" text="Due Date of Task:" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Button fx:id="addTaskButton" layoutX="145.0" layoutY="500.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="40.0" prefWidth="160.0" text="Add Task!">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Label layoutX="165.0" layoutY="50.0" text="Add Tasks:" underline="true">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="cancelButton" layoutX="145.0" layoutY="560.0" mnemonicParsing="false" onAction="#cancelAddTask" prefHeight="40.0" prefWidth="160.0" text="Cancel">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
+
