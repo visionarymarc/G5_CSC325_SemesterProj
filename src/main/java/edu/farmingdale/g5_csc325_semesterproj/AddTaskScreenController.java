@@ -23,12 +23,17 @@ public class AddTaskScreenController {
     @FXML
     private Button cancelButton;
 
-    private static ObservableList<Task> taskList = FXCollections.observableArrayList();
+    //"taskList" is an Array List that stores the Task, Date, and Due Date inputs from Users.
+    private static final ObservableList<Task> taskList = FXCollections.observableArrayList();
 
+    //"getTask()" method allows the TaskScreenController to grab the inputs and display it on "taskTable".
     public static ObservableList<Task> getTask(){
         return taskList;
     }
 
+    //"addNewTask()" method allows Users to click Add Task button to add their new tasks.
+    //When clicked, it causes the User Inputs to be grabbed and set into the "taskTable" in the Home Screen.
+    //Once the button is hit, the changes are made and the screen switches back to the Home Screen.
     @FXML
     public void addNewTask() throws IOException {
         Task newTask = new Task(taskInput.getText(),dateInput.getText(),dueInput.getText());
@@ -43,6 +48,8 @@ public class AddTaskScreenController {
         MindMapApp.switchScene(stage, "task-screen.fxml");
     }
 
+    //"cancelAddTask()" method grants Users to click the Cancel button.
+    //This would shift Users back to the Home Screen if they did not mean to click the Add Task button.
     @FXML
     private void cancelAddTask() throws IOException {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
