@@ -9,32 +9,35 @@ import java.io.IOException;
 
 public class MindMapApp extends Application {
 
-    private static String username = ""; // Store username temporarily
+    // Store "username" temporarily to display on Home Screen.
+    private static String username = "";
 
+    //"start" method launches the first screen to access Mind Map.
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MindMapApp.class.getResource("splash-screen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 450, 700);
         stage.setTitle("Mind Map!");
         stage.setScene(scene);
         stage.show();
     }
 
+    //This is the Setter and Getter for the Username to be displayed in the Home Screen.
     public static void setUsername(String name) {
         username = name;
     }
-
     public static String getUsername() {
         return username;
     }
 
+    //"switchScene" method allows for certain sections of the project to switch screens.
     public static void switchScene(Stage stage, String fxmlFile) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MindMapApp.class.getResource(fxmlFile));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 450, 700);
         stage.setScene(scene);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         launch();
     }
 }
