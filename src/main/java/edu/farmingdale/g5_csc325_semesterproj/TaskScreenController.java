@@ -31,6 +31,14 @@ public class TaskScreenController {
     @FXML
     private Button deleteTask;
 
+    @FXML
+    private Button signoutBtn;
+
+    @FXML
+    private void handleSignOut() throws IOException {
+        Stage stage = (Stage) signoutBtn.getScene().getWindow();
+        MindMapApp.switchScene(stage, "splash-screen.fxml");
+    }
 
     @FXML
     private void initialize() {

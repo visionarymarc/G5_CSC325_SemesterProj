@@ -30,20 +30,19 @@
          <TableColumn fx:id="dueDateColumn" prefWidth="140.0" text="Due Date" />
       </columns>
    </TableView>
-   <Button fx:id="addTask" layoutX="125.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleAddTask" prefHeight="30.0" prefWidth="200.0" text="Add Task">
+   <Button fx:id="addTask" layoutX="125.0" layoutY="536.0" mnemonicParsing="false" onAction="#handleAddTask" prefHeight="30.0" prefWidth="200.0" text="Add Task">
       <font>
          <Font name="System Bold" size="14.0" />
       </font>
    </Button>
-   <Button fx:id="editTask" layoutX="125.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleEditTask" prefHeight="30.0" prefWidth="200.0" text="Edit Tasks">
+   <Button fx:id="deleteTask" layoutX="125.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleDeleteTask" prefHeight="30.0" prefWidth="200.0" text="Delete Tasks">
       <font>
          <Font name="System Bold" size="14.0" />
       </font>
    </Button>
-   <Button fx:id="deleteTask" layoutX="125.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleDeleteTask" prefHeight="30.0" prefWidth="200.0" text="Delete Tasks">
+   <Button fx:id="signoutBtn" layoutX="125.0" layoutY="632.0" mnemonicParsing="false" onAction="#handleSignOut" prefHeight="30.0" prefWidth="200.0" text="SIgn Out">
       <font>
          <Font name="System Bold" size="14.0" />
       </font>
    </Button>
 </AnchorPane>
-

@@ -8,11 +8,20 @@ import java.io.IOException;
 public class SplashScreenController {
 
     @FXML
-    private Button enterBtn;
+    private Button inBtn;
+    @FXML
+    private Button upBtn;
 
     @FXML
-    private void handleEnterPress() throws IOException {
-        Stage stage = (Stage) enterBtn.getScene().getWindow();
+    private void goToSignIn() throws IOException {
+        Stage stage = (Stage) inBtn.getScene().getWindow();
+        MindMapApp.switchScene(stage, "sign-in-screen.fxml");
+    }
+
+    @FXML
+    private void goToSignUp() throws IOException {
+        Stage stage = (Stage)  upBtn.getScene().getWindow();
         MindMapApp.switchScene(stage, "sign-up-screen.fxml");
     }
+
 }

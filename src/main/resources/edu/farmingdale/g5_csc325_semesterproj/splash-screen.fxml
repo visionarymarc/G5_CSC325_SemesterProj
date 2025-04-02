@@ -11,5 +11,6 @@
          <Font name="Lava Kannada Heavy" size="37.0" />
       </font>
    </Label>
-   <Button fx:id="enterBtn" layoutX="226.0" layoutY="200.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="148.0" text="Enter" onAction="#handleEnterPress"/>
+   <Button fx:id="inBtn" layoutX="226.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToSignIn" prefHeight="54.0" prefWidth="148.0" text="Sign In" />
+   <Button fx:id="upBtn" layoutX="226.0" layoutY="274.0" mnemonicParsing="false" onAction="#goToSignUp" prefHeight="54.0" prefWidth="148.0" text="Sign Up" />
 </AnchorPane>

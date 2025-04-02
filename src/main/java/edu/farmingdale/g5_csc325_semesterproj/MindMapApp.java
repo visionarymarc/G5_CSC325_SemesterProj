@@ -5,9 +5,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.HashMap;
 import java.io.IOException;
 
 public class MindMapApp extends Application {
+
+    // Add this at the class level
+    private static final HashMap<String, String> users = new HashMap<>();
+
+    // Getter for users
+    public static HashMap<String, String> getUsers() {
+        return users;
+    }
 
     // Store "username" temporarily to display on Home Screen.
     private static String username = "";
