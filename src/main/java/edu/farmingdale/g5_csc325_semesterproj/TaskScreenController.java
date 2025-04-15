@@ -11,47 +11,64 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller for the main Task screen.
+ * Displays the current user's task list, supports adding, editing, and deleting tasks.
+ */
 public class TaskScreenController {
 
+    /** Label showing the currently logged-in username */
     @FXML
     private Label usernameLabel;
 
+    /** The TableView component that displays the list of tasks */
     @FXML
     public TableView<Task> taskTable;
 
+    /** Table column for the task name */
     @FXML
     private TableColumn<Task, String> taskNameColumn;
+
+    /** Table column for the assigned date */
     @FXML
     private TableColumn<Task, String> dateAssignedColumn;
+
+    /** Table column for the due date */
     @FXML
     private TableColumn<Task, String> dueDateColumn;
 
+    /** Button to add a new task */
     @FXML
     private Button addTask;
+
+    /** Button to delete the selected task */
     @FXML
     private Button deleteTask;
 
+    /** Button to sign out and return to splash screen */
     @FXML
     private Button signoutBtn;
 
+    /**
+     * Signs the user out by resetting the session and returning to the splash screen.
+     * @throws IOException if the splash screen fails to load
+     */
     @FXML
     private void handleSignOut() throws IOException {
         Stage stage = (Stage) signoutBtn.getScene().getWindow();
         MindMapApp.switchScene(stage, "splash-screen.fxml");
     }
 
+    /**
+     * Initializes the Task screen.
+     * Sets up column-cell mappings and populates the task table from the current user's data.
+     */
     @FXML
     private void initialize() {
-
-        //Username can only contain a maximum of 18 characters for full display (including spaces).
-        //Username Input when application first starts is grabbed and set as the "usernameLabel".
-        //Username will then be displayed in the Home Screen.
+        // Display username
         usernameLabel.setText(MindMapApp.getUsername());
 
-        //This section with "taskNameColumn" grabs User input and stores it in the "taskNameColumn".
-        //Also included is the option to edit the specific field in the "taskNameColumn".
-        //Simply double-click the field of your choosing, and you enter the new data in that field.
-        //Once the new data replaces the old one, hit enter right after to save the new set data.
+        // Set cell factories and enable in-place editing for each column
         taskNameColumn.setCellValueFactory(new PropertyValueFactory<>("taskName"));
         taskNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         taskNameColumn.setOnEditCommit(event -> {
@@ -59,8 +76,6 @@ public class TaskScreenController {
             task.setTaskName(event.getNewValue());
         });
 
-        //This section with "dateAssignedColumn" grabs User input and stores it in the "dateAssignedColumn".
-        //Also included is the option to edit the field, same steps to follow just like in "taskNameColumn".
         dateAssignedColumn.setCellValueFactory(new PropertyValueFactory<>("dateAssigned"));
         dateAssignedColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         dateAssignedColumn.setOnEditCommit(event -> {
@@ -68,8 +83,6 @@ public class TaskScreenController {
             task.setDateAssigned(event.getNewValue());
         });
 
-        //This section with "dueDateColumn" grabs User input and stores it in the "dueDateColumn".
-        //Also included is the option to edit the field, same steps to follow just like in "taskNameColumn".
         dueDateColumn.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
         dueDateColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         dueDateColumn.setOnEditCommit(event -> {
@@ -77,46 +90,43 @@ public class TaskScreenController {
             task.setDueDate(event.getNewValue());
         });
 
-        //The items(User Inputs) are grabbed from the "AddTaskScreenController" and set in the taskTable.
-        //Every added task is displayed in the Home Screen where "taskTable" is located.
+        // Display current user's task list
         taskTable.setItems(MindMapApp.getCurrentUser().taskList);
-
-        //This allows for the fields in each column in "taskTable" to be double-clicked and edited.
         taskTable.setEditable(true);
 
-        //"deleteTask" is the name of the Delete Task button which allows Users to delete a selected row.
+        // Set delete button functionality
         deleteTask.setOnAction(event -> {
             try {
                 handleDeleteTask();
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
-
     }
 
-    //"handleAddTask()" allows Users to click the Add Task Button and switch to another screen.
-    //This allows Users to add new information to display on the "taskTable" on the Home Screen.
+    /**
+     * Switches to the Add Task screen for creating a new task.
+     * @throws IOException if the Add Task screen fails to load
+     */
     @FXML
     private void handleAddTask() throws IOException {
         Stage stage = (Stage) addTask.getScene().getWindow();
         MindMapApp.switchScene(stage, "add-task-screen.fxml");
     }
 
-    //"handleDeleteTask()" allows Users to click the Delete Task button to delete selected tasks.
-    //Simply click the row on "taskTable" that you would like to delete, and click Delete Task to delete it.
+    /**
+     * Deletes the selected task from the current user's task list.
+     * If no task is selected, prints an error message to the console.
+     * @throws IOException if task deletion causes an issue
+     */
     @FXML
     private void handleDeleteTask() throws IOException {
         Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
         if (selectedTask != null) {
             taskTable.getItems().remove(selectedTask);
             MindMapApp.getCurrentUser().taskList.remove(selectedTask);
-        }
-        else {
+        } else {
             System.out.println("There is an error deleting your selected task.");
         }
     }
-
 }
-

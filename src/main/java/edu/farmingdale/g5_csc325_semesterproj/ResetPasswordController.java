@@ -8,21 +8,34 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * Controller for the Reset Password screen.
+ * Allows users to recover their username and password using a verification code tied to their email.
+ */
 public class ResetPasswordController {
 
+    /** TextField for user to input their registered email */
     @FXML
     private TextField emailField;
 
+    /** TextField to input the received 4-digit verification code */
     @FXML
     private TextField codeField;
 
+    /** Label for displaying results and feedback */
     @FXML
     private Label resultLabel;
 
+    /** Stores the generated verification code */
     private String expectedCode;
+
+    /** The user found via the submitted email */
     private User foundUser;
 
-    // Generate a 4-digit verification code and "send" it (print it out)
+    /**
+     * Generates and displays a mock 4-digit verification code if the provided email matches a user.
+     * Pretends to "email" the code and displays it on screen for demo purposes.
+     */
     @FXML
     private void handleSendCode() {
         String emailInput = emailField.getText().trim();
@@ -40,7 +53,10 @@ public class ResetPasswordController {
         resultLabel.setText("Email not found.");
     }
 
-    // Check the code and reveal credentials
+    /**
+     * Verifies the 4-digit code input against the generated one.
+     * If matched, displays the user's username and password.
+     */
     @FXML
     private void handleVerifyCode() {
         String codeInput = codeField.getText().trim();
@@ -57,6 +73,10 @@ public class ResetPasswordController {
         }
     }
 
+    /**
+     * Returns the user to the Sign-In screen.
+     * @throws IOException if the sign-in screen fails to load
+     */
     @FXML
     private void handleBack() throws IOException {
         Stage stage = (Stage) emailField.getScene().getWindow();
