@@ -47,7 +47,7 @@ public class SignInScreenController {
         }
 
         User user = MindMapApp.getUser(username);
-        if (!user.getPassword().equals(password)) {
+        if (!user.password.equals(password)) {
             errorLabel.setText("Incorrect password.");
             return;
         }

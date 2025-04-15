@@ -58,7 +58,7 @@ public class SignUpScreenController {
 
         // Create and store user
         User newUser = new User(username, email, password);
-        MindMapApp.getUsers().put(username, newUser);
+        MindMapApp.users.put(username, newUser);
         MindMapApp.setUsername(username);
 
         Stage stage = (Stage) signUpBtn.getScene().getWindow();

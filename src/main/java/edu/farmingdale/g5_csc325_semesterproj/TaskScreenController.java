@@ -79,7 +79,7 @@ public class TaskScreenController {
 
         //The items(User Inputs) are grabbed from the "AddTaskScreenController" and set in the taskTable.
         //Every added task is displayed in the Home Screen where "taskTable" is located.
-        taskTable.setItems(AddTaskScreenController.getTask());
+        taskTable.setItems(MindMapApp.getCurrentUser().taskList);
 
         //This allows for the fields in each column in "taskTable" to be double-clicked and edited.
         taskTable.setEditable(true);
@@ -111,7 +111,7 @@ public class TaskScreenController {
         Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
         if (selectedTask != null) {
             taskTable.getItems().remove(selectedTask);
-            AddTaskScreenController.getTask().remove(selectedTask);
+            MindMapApp.getCurrentUser().taskList.remove(selectedTask);
         }
         else {
             System.out.println("There is an error deleting your selected task.");

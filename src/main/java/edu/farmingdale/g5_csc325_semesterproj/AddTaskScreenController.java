@@ -23,13 +23,6 @@ public class AddTaskScreenController {
     @FXML
     private Button cancelButton;
 
-    //"taskList" is an Array List that stores the Task, Date, and Due Date inputs from Users.
-    private static final ObservableList<Task> taskList = FXCollections.observableArrayList();
-
-    //"getTask()" method allows the TaskScreenController to grab the inputs and display it on "taskTable".
-    public static ObservableList<Task> getTask(){
-        return taskList;
-    }
 
     //"addNewTask()" method allows Users to click Add Task button to add their new tasks.
     //When clicked, it causes the User Inputs to be grabbed and set into the "taskTable" in the Home Screen.
@@ -38,7 +31,7 @@ public class AddTaskScreenController {
     public void addNewTask() throws IOException {
         Task newTask = new Task(taskInput.getText(),dateInput.getText(),dueInput.getText());
 
-        AddTaskScreenController.getTask().add(newTask);
+        MindMapApp.getCurrentUser().taskList.add(newTask);
 
         taskInput.clear();
         dateInput.clear();

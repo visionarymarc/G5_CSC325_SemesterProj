@@ -1,46 +1,22 @@
 package edu.farmingdale.g5_csc325_semesterproj;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    private String username;
-    private String email;
-    private String password;
-    private final List<Task> taskList;
+    protected String username,email,password;
+
+    //"taskList" is an Array List that stores the Task, Date, and Due Date inputs from Users.
+    protected ObservableList<Task> taskList;
 
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.taskList = new ArrayList<>();
+        this.taskList = FXCollections.observableArrayList();
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String newPassword) {
-        this.password = newPassword;
-    }
-
-    public List<Task> getTaskList() {
-        return taskList;
-    }
-
-    public void addTask(Task task) {
-        taskList.add(task);
-    }
-
-    public void removeTask(Task task) {
-        taskList.remove(task);
-    }
 }

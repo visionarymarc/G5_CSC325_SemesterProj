@@ -11,7 +11,7 @@ import java.io.IOException;
 public class MindMapApp extends Application {
 
     // Updated: store full User objects
-    private static final HashMap<String, User> users = new HashMap<>();
+    protected static final HashMap<String, User> users = new HashMap<>();
 
     // Getter for users
     public static HashMap<String, User> getUsers() {
@@ -20,6 +20,10 @@ public class MindMapApp extends Application {
 
     // Get specific user by username
     public static User getUser(String username) {
+        return users.get(username);
+    }
+
+    public static User getCurrentUser() {
         return users.get(username);
     }
 

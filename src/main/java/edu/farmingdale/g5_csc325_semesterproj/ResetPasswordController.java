@@ -29,7 +29,7 @@ public class ResetPasswordController {
 
         // Search for user by email
         for (Map.Entry<String, User> entry : MindMapApp.getUsers().entrySet()) {
-            if (entry.getValue().getEmail().equalsIgnoreCase(emailInput)) {
+            if (entry.getValue().email.equalsIgnoreCase(emailInput)) {
                 foundUser = entry.getValue();
                 expectedCode = String.format("%04d", new Random().nextInt(10000));
                 resultLabel.setText("Verification code: " + expectedCode + " (pretend this was emailed)");
@@ -51,7 +51,7 @@ public class ResetPasswordController {
         }
 
         if (codeInput.equals(expectedCode)) {
-            resultLabel.setText("✅ Username: " + foundUser.getUsername() + "\nPassword: " + foundUser.getPassword());
+            resultLabel.setText("✅ Username: " + foundUser.username + "\nPassword: " + foundUser.password);
         } else {
             resultLabel.setText("❌ Incorrect verification code.");
         }
