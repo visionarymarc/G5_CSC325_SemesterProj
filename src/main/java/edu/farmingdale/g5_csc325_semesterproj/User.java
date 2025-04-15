@@ -3,9 +3,6 @@ package edu.farmingdale.g5_csc325_semesterproj;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class User {
     protected String username,email,password;
 
