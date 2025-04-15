@@ -41,7 +41,7 @@
       </font>
    </Button>
    <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="151.0" layoutY="385.0" promptText="Enter Password" />
-   <TextField alignment="CENTER" layoutX="150.0" layoutY="195.0" promptText="User@Example.com">
+   <TextField fx:id="emailField" alignment="CENTER" layoutX="150.0" layoutY="195.0" promptText="User@Example.com">
       <opaqueInsets>
          <Insets />
       </opaqueInsets>
@@ -52,4 +52,5 @@
          <Font name="System Bold" size="18.0" />
       </font>
    </Button>
+   <Label fx:id="errorLabel" layoutX="96.0" layoutY="427.0" prefHeight="56.0" prefWidth="270" style="-fx-font-size: 12px;" text="" textFill="red" />
 </Pane>

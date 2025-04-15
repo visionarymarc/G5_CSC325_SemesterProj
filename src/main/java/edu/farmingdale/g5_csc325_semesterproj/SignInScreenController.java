@@ -3,6 +3,7 @@ package edu.farmingdale.g5_csc325_semesterproj;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,6 +15,9 @@ public class SignInScreenController {
 
     @FXML
     private TextField passwordField;
+
+    @FXML
+    private Label errorLabel;
 
     @FXML
     private Button signInBtn;
@@ -32,13 +36,19 @@ public class SignInScreenController {
         String username = usernameField.getText().trim();
         String password = passwordField.getText().trim();
 
-        if (!MindMapApp.getUsers().containsKey(username)) {
-            System.out.println("Username not found!");
+        if (username.isEmpty() || password.isEmpty()) {
+            errorLabel.setText("Please enter both username and password.");
             return;
         }
 
-        if (!MindMapApp.getUsers().get(username).equals(password)) {
-            System.out.println("Incorrect password!");
+        if (!MindMapApp.getUsers().containsKey(username)) {
+            errorLabel.setText("Username not found.");
+            return;
+        }
+
+        User user = MindMapApp.getUser(username);
+        if (!user.getPassword().equals(password)) {
+            errorLabel.setText("Incorrect password.");
             return;
         }
 
@@ -46,4 +56,11 @@ public class SignInScreenController {
         Stage stage = (Stage) signInBtn.getScene().getWindow();
         MindMapApp.switchScene(stage, "task-screen.fxml");
     }
+
+    @FXML
+    private void handleResetPassword() throws IOException {
+        Stage stage = (Stage) signInBtn.getScene().getWindow();
+        MindMapApp.switchScene(stage, "reset-password-screen.fxml");
+    }
+
 }

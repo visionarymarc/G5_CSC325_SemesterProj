@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="700" prefWidth="450" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="edu.farmingdale.g5_csc325_semesterproj.SignInScreenController">
+<AnchorPane prefHeight="700" prefWidth="450" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.farmingdale.g5_csc325_semesterproj.SignInScreenController">
 
     <Label layoutX="185" layoutY="50" style="-fx-font-size: 24;" text="Sign In" />
 
@@ -18,5 +18,8 @@
 
     <Button fx:id="signInBtn" layoutX="175" layoutY="320" onAction="#handleSignIn" prefWidth="100" text="Sign In" />
    <Button fx:id="backBtn2" layoutX="175.0" layoutY="394.0" onAction="#handleBack" prefWidth="100" text="Back" />
+   <Label fx:id="errorLabel" layoutX="65.0" layoutY="101.0" prefHeight="15.0" prefWidth="321.0" style="-fx-font-size: 12px;" text="" textFill="red" />
+    <!-- Reset Password Button -->
+    <Button layoutX="165.0" layoutY="357.0" onAction="#handleResetPassword" prefWidth="120" text="Reset Password" />
 
 </AnchorPane>

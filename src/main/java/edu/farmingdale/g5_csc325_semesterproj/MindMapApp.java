@@ -10,18 +10,39 @@ import java.io.IOException;
 
 public class MindMapApp extends Application {
 
-    // Add this at the class level
-    private static final HashMap<String, String> users = new HashMap<>();
+    // Updated: store full User objects
+    private static final HashMap<String, User> users = new HashMap<>();
 
     // Getter for users
-    public static HashMap<String, String> getUsers() {
+    public static HashMap<String, User> getUsers() {
         return users;
     }
 
-    // Store "username" temporarily to display on Home Screen.
+    // Get specific user by username
+    public static User getUser(String username) {
+        return users.get(username);
+    }
+
+    // Store logged-in username
     private static String username = "";
 
-    //"start" method launches the first screen to access Mind Map.
+    // Setter and Getter for logged-in username
+    public static void setUsername(String name) {
+        username = name;
+    }
+
+    public static String getUsername() {
+        return username;
+    }
+
+    // Scene switching logic
+    public static void switchScene(Stage stage, String fxmlFile) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MindMapApp.class.getResource(fxmlFile));
+        Scene scene = new Scene(fxmlLoader.load(), 450, 700);
+        stage.setScene(scene);
+    }
+
+    // Launch splash screen on app start
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MindMapApp.class.getResource("splash-screen.fxml"));
@@ -29,21 +50,6 @@ public class MindMapApp extends Application {
         stage.setTitle("Mind Map!");
         stage.setScene(scene);
         stage.show();
-    }
-
-    //This is the Setter and Getter for the Username to be displayed in the Home Screen.
-    public static void setUsername(String name) {
-        username = name;
-    }
-    public static String getUsername() {
-        return username;
-    }
-
-    //"switchScene" method allows for certain sections of the project to switch screens.
-    public static void switchScene(Stage stage, String fxmlFile) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MindMapApp.class.getResource(fxmlFile));
-        Scene scene = new Scene(fxmlLoader.load(), 450, 700);
-        stage.setScene(scene);
     }
 
     public static void main(String[] args){
